@@ -22,6 +22,7 @@ requirements:
     - make 4.2.*
     - libtool 2.4.*
     - pkg-config 0.29.*
+    - pytest
     - glib 2.55.*
     - python
     - pycairo 1.13.*
