@@ -1,7 +1,7 @@
 {% set name = "pygobject" %}
-{% set version = "3.28.1" %}
+{% set version = "3.28.2" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
-{% set sha256 = "42312b4a5015571fa0a4f2d201005da46b71c251ea2625bc95702d071c4ff895" %}
+{% set sha256 = "ac443afd14fcb9ff5744b65d6e2b380e70510278404fb8684a9b9fb089e6f2ca" %}
 
 package:
   name: {{ name|lower }}
