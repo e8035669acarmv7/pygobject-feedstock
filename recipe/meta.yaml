@@ -18,7 +18,7 @@ build:
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
     - make 4.2.*
     - libtool 2.4.*
     - pkg-config 0.29.*
