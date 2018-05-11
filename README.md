@@ -16,14 +16,16 @@ such as GTK+, GStreamer, WebKitGTK+, GLib, GIO and many more.
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pygobject-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pygobject-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pygobject-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pygobject-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pygobject-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pygobject-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pygobject-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pygobject-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pygobject/badges/version.svg)](https://anaconda.org/conda-forge/pygobject)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pygobject/badges/downloads.svg)](https://anaconda.org/conda-forge/pygobject)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pygobject-green.svg)](https://anaconda.org/conda-forge/pygobject) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pygobject.svg)](https://anaconda.org/conda-forge/pygobject) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pygobject.svg)](https://anaconda.org/conda-forge/pygobject) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pygobject.svg)](https://anaconda.org/conda-forge/pygobject) |
 
 Installing pygobject
 ====================
