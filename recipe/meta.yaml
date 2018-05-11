@@ -22,12 +22,13 @@ requirements:
     - make 4.2.*
     - libtool 2.4.*
     - pkg-config 0.29.*
-    - pytest
+  host:
     - glib
     - python
     - pycairo 1.16.*
     - gobject-introspection 1.55.*
     - libffi
+    - pytest
   run:
     - glib
     - python
