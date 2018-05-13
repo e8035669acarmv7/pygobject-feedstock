@@ -13,27 +13,28 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
     - make 4.2.*
     - libtool 2.4.*
     - pkg-config 0.29.*
+  host:
+    - glib
+    - python
+    - pycairo 1.16.*
+    - gobject-introspection 1.55.*
+    - libffi
     - pytest
-    - glib 2.55.*
-    - python
-    - pycairo 1.13.*
-    - gobject-introspection 1.55.*
-    - libffi 3.2.*
   run:
-    - glib 2.55.*
+    - glib
     - python
-    - pycairo 1.13.*
+    - pycairo 1.16.*
     - gobject-introspection 1.55.*
-    - libffi 3.2.*
+    - libffi
 
 test:
   imports:
