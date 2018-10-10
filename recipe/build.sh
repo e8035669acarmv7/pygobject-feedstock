@@ -4,6 +4,8 @@ set -e
 
 if [ -n "$OSX_ARCH" ] ; then
     export LDFLAGS="$LDFLAGS -Wl,-rpath,$PREFIX/lib"
+else
+    export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 fi
 
 ./configure --with-python=${PYTHON} --prefix="${PREFIX}"
