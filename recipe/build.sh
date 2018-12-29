@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 if [ -n "$OSX_ARCH" ] ; then
     export LDFLAGS="$LDFLAGS -Wl,-rpath,$PREFIX/lib"
@@ -8,7 +8,9 @@ else
     export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 fi
 
-./configure --with-python=${PYTHON} --prefix="${PREFIX}"
-make check TEST_NAMES=test_gi
-make install
-
+mkdir forgebuild
+cd forgebuild
+meson --buildtype=release --prefix="$PREFIX" --backend=ninja -Dlibdir=lib ..
+ninja -v
+ninja test
+ninja install
