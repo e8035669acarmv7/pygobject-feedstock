@@ -14,7 +14,8 @@ source:
   url: http://ftp.gnome.org/pub/GNOME/sources/pygobject/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
   patches:
-    - meson-rpaths.patch
+    - macos-tests.patch
+    - meson-rpaths.patch  # [linux]
 
 build:
   number: 1000
