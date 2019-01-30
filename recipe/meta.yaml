@@ -1,7 +1,9 @@
 {% set name = "pygobject" %}
-{% set version = "3.28.3" %}
+{% set version = "3.30.4" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
-{% set sha256 = "3dd3e21015d06e00482ea665fc1733b77e754a6ab656a5db5d7f7bfaf31ad0b0" %}
+{% set sha256 = "2dc1a1a444b82955e65b81c2a2511ecf8032404beba4ef1d48144168f2f64c43" %}
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: {{ name|lower }}
@@ -11,18 +13,23 @@ source:
   fn: {{ name }}-{{ version }}.tar.xz
   url: http://ftp.gnome.org/pub/GNOME/sources/pygobject/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
+  patches:
+    - macos-tests.patch
+    - meson-rpaths.patch  # [linux]
 
 build:
-  number: 1002
-  skip: true  # [win]
+  number: 1000
+  skip: true  # [py<35]
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
-    - libtool
-    - pkg-config
+    - m2-msys2-runtime  # [win]
+    - ninja
+    - {{posix}}patch
+    - {{native}}pkg-config
   host:
+    - meson
     - glib
     - python
     - pycairo
@@ -39,6 +46,7 @@ requirements:
 test:
   imports:
     - gi
+    - gi.repository.GLib
   commands:
     - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]

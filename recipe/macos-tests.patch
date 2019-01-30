@@ -1,0 +1,14 @@
+diff --git a/tests/meson.build b/tests/meson.build
+index f72ead0..c500d90 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -115,6 +115,9 @@ endif
+ if host_machine.system() == 'linux'
+     envdata.prepend('LD_LIBRARY_PATH', meson.current_build_dir())
+ endif
++if host_machine.system() == 'darwin'
++    envdata.prepend('DYLD_LIBRARY_PATH', meson.current_build_dir())
++endif
+ if host_machine.system() == 'windows'
+     envdata.prepend('PATH', join_paths(get_option('prefix'), get_option('bindir')))
+ endif
