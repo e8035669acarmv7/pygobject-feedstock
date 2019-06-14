@@ -41,6 +41,7 @@ requirements:
     - python
     - pycairo
     - gobject-introspection 1.*
+    - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
     - libffi
 
 test:
