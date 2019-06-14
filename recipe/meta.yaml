@@ -30,6 +30,7 @@ requirements:
     - {{native}}pkg-config
   host:
     - meson
+    - flake8  # for testing during the build
     - glib
     - python
     - pycairo
