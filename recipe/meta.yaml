@@ -18,7 +18,7 @@ source:
     - meson-rpaths.patch  # [linux]
 
 build:
-  number: 1000
+  number: 1001
   skip: true  # [py<35]
 
 requirements:
@@ -30,6 +30,7 @@ requirements:
     - {{native}}pkg-config
   host:
     - meson
+    - flake8  # for testing during the build
     - glib
     - python
     - pycairo
@@ -41,6 +42,7 @@ requirements:
     - python
     - pycairo
     - gobject-introspection 1.*
+    - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
     - libffi
 
 test:
