@@ -1,7 +1,7 @@
 {% set name = "pygobject" %}
-{% set version = "3.30.4" %}
+{% set version = "3.30.5" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
-{% set sha256 = "2dc1a1a444b82955e65b81c2a2511ecf8032404beba4ef1d48144168f2f64c43" %}
+{% set sha256 = "9deeac63e0d834646221cf37404d2fdfb3eac6d49aa50133ef9ac38f09ff2bfd" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -18,7 +18,7 @@ source:
     - meson-rpaths.patch  # [linux]
 
 build:
-  number: 1001
+  number: 0
   skip: true  # [py<35]
 
 requirements:
