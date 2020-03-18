@@ -18,18 +18,18 @@ source:
     - meson-rpaths.patch  # [linux]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<35]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - m2-msys2-runtime  # [win]
+    - meson
     - ninja
     - {{posix}}patch
     - {{native}}pkg-config
   host:
-    - meson
     - flake8  # for testing during the build
     - glib
     - python

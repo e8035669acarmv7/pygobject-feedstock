@@ -17,11 +17,9 @@ cd forgebuild
 
 @REM pkg-config setup
 FOR /F "delims=" %%i IN ('cygpath.exe -m "%LIBRARY_PREFIX%"') DO set "LIBRARY_PREFIX_M=%%i"
-set PKG_CONFIG_PATH=%LIBRARY_PREFIX_M%/lib/pkgconfig
+set PKG_CONFIG_PATH=%LIBRARY_PREFIX_M%/lib/pkgconfig;%LIBRARY_PREFIX_M%/share/pkgconfig
 
-@REM NB: We should provide Cairo, but it's a bit tricky on Windows
-@REM so we're punting on it for now.
-%PYTHON% %PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% -Dpycairo=false ..
+%BUILD_PREFIX%\python.exe %BUILD_PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% ..
 if errorlevel 1 exit 1
 
 ninja -v
