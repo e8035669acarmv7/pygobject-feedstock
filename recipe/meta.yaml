@@ -24,26 +24,26 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - flake8  # for testing during the build
     - m2-msys2-runtime  # [win]
-    - meson
     - ninja
     - {{posix}}patch
     - {{native}}pkg-config
-    - pytest
   host:
+    - flake8  # for testing during the build
     - glib
-    - python
-    - pycairo
     - gobject-introspection 1.*
     - libffi
+    - meson  # undiagnosed issues with meson in build prefix that go away when in host
+    - pycairo
+    - python
+    - pytest  # for testing during the build
   run:
     - glib
-    - python
-    - pycairo
     - gobject-introspection 1.*
     - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
     - libffi
+    - pycairo
+    - python
 
 test:
   imports:

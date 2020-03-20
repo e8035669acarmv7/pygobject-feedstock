@@ -8,9 +8,18 @@ else
     export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
 fi
 
+meson_config_args=(
+  --prefix="$PREFIX"
+  --libdir=lib
+  --wrap-mode=nofallback
+  --buildtype=release
+  --backend=ninja
+  -D python="$PYTHON"
+)
+
 mkdir forgebuild
 cd forgebuild
-meson --buildtype=release --prefix="$PREFIX" --backend=ninja -Dlibdir=lib ..
+meson setup .. "${meson_config_args[@]}"
 ninja -v
 ninja test
 ninja install
