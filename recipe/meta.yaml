@@ -18,7 +18,7 @@ source:
     - meson-rpaths.patch  # [linux]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<35]
 
 requirements:
@@ -29,33 +29,43 @@ requirements:
     - {{posix}}patch
     - {{native}}pkg-config
   host:
-    - meson
     - flake8  # for testing during the build
     - glib
-    - python
-    - pycairo
     - gobject-introspection 1.*
     - libffi
-    - pytest
+    - meson  # undiagnosed issues with meson in build prefix that go away when in host
+    - pycairo
+    - python
+    - pytest  # for testing during the build
   run:
     - glib
-    - python
-    - pycairo
     - gobject-introspection 1.*
     - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
     - libffi
+    - pycairo
+    - python
 
 test:
+  requires:
+    - pkg-config
   imports:
     - gi
     - gi.repository.GLib
   commands:
+    # verify that header gets installed and can be located through pkg-config
+    {% set pc = "pygobject-3.0" %}
+    {% set header = "pygobject.h" %}
+    - test -f $PREFIX/include/{{ pc }}/{{ header }}  # [unix]
+    - test -f `pkg-config --variable=pygobjectincludedir --dont-define-prefix {{ pc }}`/{{ header }}  # [unix]
+    - if not exist %LIBRARY_INC%\\{{ pc }}\\{{ header }} exit 1  # [win]
+    - for /f "usebackq tokens=*" %%a in (`pkg-config --variable=pygobjectincludedir --dont-define-prefix {{ pc }}`) do if not exist "%%a/{{ header }}" exit 1  # [win]
+
     - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
     - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: https://pygobject.readthedocs.io
-  license: LGPL-2.1
+  license: LGPL-2.1-or-later
   license_family: LGPL
   license_file: COPYING
   summary: 'Python bindings for GObject Introspection'

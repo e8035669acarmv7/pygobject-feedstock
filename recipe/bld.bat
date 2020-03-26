@@ -17,16 +17,18 @@ cd forgebuild
 
 @REM pkg-config setup
 FOR /F "delims=" %%i IN ('cygpath.exe -m "%LIBRARY_PREFIX%"') DO set "LIBRARY_PREFIX_M=%%i"
-set PKG_CONFIG_PATH=%LIBRARY_PREFIX_M%/lib/pkgconfig
+set PKG_CONFIG_PATH=%LIBRARY_PREFIX_M%/lib/pkgconfig;%LIBRARY_PREFIX_M%/share/pkgconfig
 
-@REM NB: We should provide Cairo, but it's a bit tricky on Windows
-@REM so we're punting on it for now.
-%PYTHON% %PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% -Dpycairo=false ..
+%PREFIX%\python.exe %PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX_M% --backend=ninja -Dpython=%PYTHON% ..
 if errorlevel 1 exit 1
 
 ninja -v
 if errorlevel 1 exit 1
 
+@REM workaround for failing test with pytest 5.4+
+@REM can remove for pygobject versions after (but not including) 3.36
+@REM see https://github.com/GNOME/pygobject/commit/dae0500166068d78150855bdef94f0bee18b31dd
+set "PYTEST_ADDOPTS=-k 'not test_pytest_capture_error_in_closure'"
 ninja test
 if errorlevel 1 exit 1
 
