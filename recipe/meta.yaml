@@ -1,7 +1,7 @@
 {% set name = "pygobject" %}
-{% set version = "3.30.5" %}
+{% set version = "3.36.1" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
-{% set sha256 = "9deeac63e0d834646221cf37404d2fdfb3eac6d49aa50133ef9ac38f09ff2bfd" %}
+{% set sha256 = "d1bf42802d1cec113b5adaa0e7bf7f3745b44521dc2163588d276d5cd61d718f" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,14 +11,14 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.xz
-  url: http://ftp.gnome.org/pub/GNOME/sources/pygobject/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
+  url: https://download.gnome.org/sources/{{ name }}/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
   sha256: {{ sha256 }}
   patches:
     - macos-tests.patch
     - meson-rpaths.patch  # [linux]
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<35]
 
 requirements:
@@ -26,20 +26,18 @@ requirements:
     - {{ compiler('c') }}
     - m2-msys2-runtime  # [win]
     - ninja
-    - {{posix}}patch
-    - {{native}}pkg-config
+    - {{ posix }}patch
+    - {{ native }}pkg-config
   host:
-    - flake8  # for testing during the build
     - glib
-    - gobject-introspection 1.*
+    - gobject-introspection
     - libffi
     - meson  # undiagnosed issues with meson in build prefix that go away when in host
     - pycairo
     - python
-    - pytest  # for testing during the build
   run:
     - glib
-    - gobject-introspection 1.*
+    - gobject-introspection
     - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
     - libffi
     - pycairo
@@ -81,3 +79,4 @@ extra:
   recipe-maintainers:
     - pkgw
     - sebastian-luna-valero
+    - tschoonj
