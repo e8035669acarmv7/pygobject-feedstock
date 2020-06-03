@@ -31,66 +31,66 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_python3.6.____cpython</td>
+              <td>linux_python3.6.____cpythontarget_platformlinux-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6.____cpythontarget_platformlinux-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_python3.7.____cpython</td>
+              <td>linux_python3.7.____cpythontarget_platformlinux-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7.____cpythontarget_platformlinux-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_python3.8.____cpython</td>
+              <td>linux_python3.8.____cpythontarget_platformlinux-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=linux&configuration=linux_python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=linux&configuration=linux_python3.8.____cpythontarget_platformlinux-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.6.____cpython</td>
+              <td>osx_python3.6.____cpythontarget_platformosx-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=osx&configuration=osx_python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=osx&configuration=osx_python3.6.____cpythontarget_platformosx-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.7.____cpython</td>
+              <td>osx_python3.7.____cpythontarget_platformosx-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=osx&configuration=osx_python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=osx&configuration=osx_python3.7.____cpythontarget_platformosx-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.8.____cpython</td>
+              <td>osx_python3.8.____cpythontarget_platformosx-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=osx&configuration=osx_python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=osx&configuration=osx_python3.8.____cpythontarget_platformosx-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_python3.6.____cpython</td>
+              <td>win_python3.6.____cpythontarget_platformwin-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=win&configuration=win_python3.6.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=win&configuration=win_python3.6.____cpythontarget_platformwin-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_python3.7.____cpython</td>
+              <td>win_python3.7.____cpythontarget_platformwin-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=win&configuration=win_python3.7.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=win&configuration=win_python3.7.____cpythontarget_platformwin-64" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_python3.8.____cpython</td>
+              <td>win_python3.8.____cpythontarget_platformwin-64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=872&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=win&configuration=win_python3.8.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/pygobject-feedstock?branchName=master&jobName=win&configuration=win_python3.8.____cpythontarget_platformwin-64" alt="variant">
                 </a>
               </td>
             </tr>
@@ -201,4 +201,5 @@ Feedstock Maintainers
 
 * [@pkgw](https://github.com/pkgw/)
 * [@sebastian-luna-valero](https://github.com/sebastian-luna-valero/)
+* [@tschoonj](https://github.com/tschoonj/)
 
