@@ -1,7 +1,6 @@
 {% set name = "pygobject" %}
-{% set version = "3.36.1" %}
+{% set version = "3.38.0" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
-{% set sha256 = "d1bf42802d1cec113b5adaa0e7bf7f3745b44521dc2163588d276d5cd61d718f" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -12,13 +11,13 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.xz
   url: https://download.gnome.org/sources/{{ name }}/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: {{ sha256 }}
+  sha256: 0372d1bb9122fc19f500a249b1f38c2bb67485000f5887497b4b205b3e7084d5
   patches:
     - macos-tests.patch
     - meson-rpaths.patch  # [linux]
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<35]
 
 requirements:
@@ -46,9 +45,11 @@ requirements:
 test:
   requires:
     - pkg-config
+    - gtk3
   imports:
     - gi
     - gi.repository.GLib
+    - gi.repository.Gtk
   commands:
     # verify that header gets installed and can be located through pkg-config
     {% set pc = "pygobject-3.0" %}
