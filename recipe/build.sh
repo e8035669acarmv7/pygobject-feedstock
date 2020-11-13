@@ -2,12 +2,6 @@
 
 set -ex
 
-if [ -n "$OSX_ARCH" ] ; then
-    export LDFLAGS="$LDFLAGS -Wl,-rpath,$PREFIX/lib"
-else
-    export LDFLAGS="$LDFLAGS -Wl,-rpath-link,$PREFIX/lib"
-fi
-
 meson_config_args=(
   --prefix="$PREFIX"
   --libdir=lib
