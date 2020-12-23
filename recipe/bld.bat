@@ -12,7 +12,7 @@ set "PKG_CONFIG_PATH=%LIBRARY_LIB%\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig;%B
 mkdir forgebuild
 cd forgebuild
 
-%BUILD_PREFIX%\python.exe %BUILD_PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX% --backend=ninja -Dpython=%PYTHON% -Dtests=false ..
+%BUILD_PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX% --backend=ninja -Dpython=%PYTHON% -Dtests=false ..
 if errorlevel 1 exit 1
 
 ninja -v

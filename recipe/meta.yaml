@@ -12,7 +12,7 @@ source:
   sha256: 0372d1bb9122fc19f500a249b1f38c2bb67485000f5887497b4b205b3e7084d5
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<35]
 
 requirements:
@@ -52,8 +52,6 @@ test:
     - if not exist %LIBRARY_INC%\\{{ pc }}\\{{ header }} exit 1  # [win]
     - for /f "usebackq tokens=*" %%a in (`pkg-config --variable=pygobjectincludedir --dont-define-prefix {{ pc }}`) do if not exist "%%a/{{ header }}" exit 1  # [win]
 
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: https://pygobject.readthedocs.io
