@@ -41,11 +41,9 @@ requirements:
 test:
   requires:
     - pkg-config
-    - gtk3
   imports:
     - gi
     - gi.repository.GLib
-    - gi.repository.Gtk
   commands:
     # verify that header gets installed and can be located through pkg-config
     {% set pc = "pygobject-3.0" %}
