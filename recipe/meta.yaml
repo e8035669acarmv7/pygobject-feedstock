@@ -14,37 +14,36 @@ source:
   sha256: 00c6d591f4cb40c335ab1fd3e8c17869ba15cfda54416fe363290af766790035
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<35]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - meson
     - ninja
     - pkg-config
-    - meson
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
+    - cairo
     - glib
+    - gobject-introspection
     - libffi
     - pycairo
-    - gobject-introspection
     - python
   run:
-    - glib
     - gobject-introspection
     - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
-    - libffi
     - pycairo
     - python
 
 test:
   requires:
     - pkg-config
-    - gtk3
   imports:
     - gi
     - gi.repository.GLib
-    - gi.repository.Gtk
   commands:
     # verify that header gets installed and can be located through pkg-config
     {% set pc = "pygobject-3.0" %}
@@ -72,5 +71,6 @@ about:
 extra:
   recipe-maintainers:
     - pkgw
+    - ryanvolz
     - sebastian-luna-valero
     - tschoonj
