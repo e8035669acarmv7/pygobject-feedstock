@@ -1,5 +1,7 @@
 c_compiler:
 - vs2017
+cairo:
+- '1.16'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -7,8 +9,10 @@ channel_targets:
 glib:
 - '2'
 libffi:
-- '3.3'
+- '3.4'
 pin_run_as_build:
+  cairo:
+    max_pin: x.x
   libffi:
     max_pin: x.x
   python:
