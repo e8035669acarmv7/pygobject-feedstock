@@ -14,7 +14,7 @@ source:
   sha256: 00c6d591f4cb40c335ab1fd3e8c17869ba15cfda54416fe363290af766790035
 
 build:
-  number: 2
+  number: 3
   skip: true  # [py<35]
 
 requirements:
@@ -33,7 +33,7 @@ requirements:
     - pycairo
     - python
   run:
-    - gobject-introspection
+    - libgirepository
     - libiconv  # on Windows we seem to need the conda-forge version here (see #15)
     - pycairo
     - python
