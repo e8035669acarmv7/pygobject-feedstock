@@ -1,7 +1,7 @@
 {% set header = "pygobject.h" %}
 {% set pc = "pygobject-3.0" %}
 {% set name = "pygobject" %}
-{% set version = "3.40.1" %}
+{% set version = "3.42.0" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -11,10 +11,10 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.xz
   url: https://download.gnome.org/sources/{{ name }}/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 00c6d591f4cb40c335ab1fd3e8c17869ba15cfda54416fe363290af766790035
+  sha256: 9b12616e32cfc792f9dc841d9c472a41a35b85ba67d3a6eb427e307a6fe4367b
 
 build:
-  number: 3
+  number: 0
   skip: true  # [py<35]
 
 requirements:
