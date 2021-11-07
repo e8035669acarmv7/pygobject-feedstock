@@ -44,6 +44,7 @@ test:
     - pkg-config
   imports:
     - gi
+    - gi.pygtkcompat
     - gi.repository.GLib
   commands:
     # verify that header gets installed and can be located through pkg-config

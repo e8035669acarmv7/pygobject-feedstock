@@ -1,3 +1,4 @@
+setlocal EnableDelayedExpansion
 @ECHO ON
 
 
@@ -12,7 +13,18 @@ set "PKG_CONFIG_PATH=%LIBRARY_LIB%\pkgconfig;%LIBRARY_PREFIX%\share\pkgconfig;%B
 mkdir forgebuild
 cd forgebuild
 
-%BUILD_PREFIX%\Scripts\meson --buildtype=release --prefix=%LIBRARY_PREFIX% --backend=ninja -Dpython=%PYTHON% -Dtests=false ..
+set ^"MESON_OPTIONS=^
+  --prefix="%LIBRARY_PREFIX%" ^
+  --default-library=shared ^
+  --buildtype=release ^
+  --backend=ninja ^
+  -Dtests=false ^
+  -Dpython="%PYTHON%" ^
+  -Dpython.platlibdir="%SP_DIR%" ^
+  -Dpython.purelibdir="%SP_DIR%" ^
+ ^"
+
+%BUILD_PREFIX%\Scripts\meson !MESON_OPTIONS!
 if errorlevel 1 exit 1
 
 ninja -v
@@ -21,9 +33,3 @@ if errorlevel 1 exit 1
 ninja install
 if errorlevel 1 exit 1
 
-@REM Meson doesn't put the Python files in the right place.
-cd %LIBRARY_PREFIX%\lib\python*
-cd site-packages
-move *.egg-info %PREFIX%\lib\site-packages
-move gi %PREFIX%\lib\site-packages\gi
-move pygtkcompat %PREFIX%\lib\site-packages\gi
