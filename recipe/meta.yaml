@@ -1,5 +1,3 @@
-{% set header = "pygobject.h" %}
-{% set pc = "pygobject-3.0" %}
 {% set name = "pygobject" %}
 {% set version = "3.42.0" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
@@ -48,12 +46,10 @@ test:
     - gi.repository.GLib
   commands:
     # verify that header gets installed and can be located through pkg-config
-    {% set pc = "pygobject-3.0" %}
-    {% set header = "pygobject.h" %}
-    - test -f $PREFIX/include/{{ pc }}/{{ header }}  # [unix]
-    - test -f `pkg-config --variable=pygobjectincludedir --dont-define-prefix {{ pc }}`/{{ header }}  # [unix]
-    - if not exist %LIBRARY_INC%\\{{ pc }}\\{{ header }} exit 1  # [win]
-    - for /f "usebackq tokens=*" %%a in (`pkg-config --variable=pygobjectincludedir --dont-define-prefix {{ pc }}`) do if not exist "%%a/{{ header }}" exit 1  # [win]
+    - test -f $PREFIX/include/pygobject-3.0/pygobject.h  # [unix]
+    - test -f `pkg-config --variable=pygobjectincludedir --dont-define-prefix pygobject-3.0`/pygobject.h  # [unix]
+    - if not exist %LIBRARY_INC%\\pygobject-3.0\\pygobject.h exit 1  # [win]
+    - for /f "usebackq tokens=*" %%a in (`pkg-config --variable=pygobjectincludedir --dont-define-prefix pygobject-3.0`) do if not exist "%%a/pygobject.h" exit 1  # [win]
 
 
 about:
