@@ -1,5 +1,5 @@
 {% set name = "pygobject" %}
-{% set version = "3.42.2" %}
+{% set version = "3.44.0" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: ade8695e2a7073849dd0316d31d8728e15e1e0bc71d9ff6d1c09e86be52bc957
+  sha256: f6863d6a3b70d9ace4c36a9901d39e42c8801d11309ca2a8b3459d1c24e34b7f
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<35]
 
 requirements:
