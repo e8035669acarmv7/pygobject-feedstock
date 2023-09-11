@@ -1,6 +1,7 @@
 {% set name = "pygobject" %}
 {% set version = "3.46.0" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
+{% set local_glib_pin = '>=2.64' %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +13,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<35]
+  skip: true  # [py<38]
 
 requirements:
   build:
@@ -24,8 +25,11 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - cairo
+    # This dep is intentionally written twice; the second time allows
+    # conda-build to add its global pin if one exists.
+    - glib {{ local_glib_pin }}
     - glib
-    - gobject-introspection
+    - gobject-introspection >=1.64
     - libffi
     - pycairo
     - python
