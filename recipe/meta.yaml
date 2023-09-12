@@ -1,6 +1,7 @@
 {% set name = "pygobject" %}
-{% set version = "3.44.1" %}
+{% set version = "3.46.0" %}
 {% set majmin = '.'.join(version.split('.', 2)[:2]) %}
+{% set local_glib_pin = '>=2.64' %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +9,11 @@ package:
 
 source:
   url: https://download.gnome.org/sources/{{ name }}/{{ majmin }}/{{ name }}-{{ version }}.tar.xz
-  sha256: 3c6805d1321be90cc32e648215a562430e0d3d6edcda8f4c5e7a9daffcad5710
+  sha256: 426008b2dad548c9af1c7b03b59df0440fde5c33f38fb5406b103a43d653cafc
 
 build:
   number: 0
-  skip: true  # [py<35]
+  skip: true  # [py<38]
 
 requirements:
   build:
@@ -24,8 +25,11 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - cairo
+    # This dep is intentionally written twice; the second time allows
+    # conda-build to add its global pin if one exists.
+    - glib {{ local_glib_pin }}
     - glib
-    - gobject-introspection
+    - gobject-introspection >=1.64
     - libffi
     - pycairo
     - python
